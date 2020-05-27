@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaCleanSolutions", "SeaCleanSolutions\SeaCleanSolutions.csproj", "{1AC0D548-B9A9-4986-BEB4-C865A9DD5CE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AC0D548-B9A9-4986-BEB4-C865A9DD5CE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC0D548-B9A9-4986-BEB4-C865A9DD5CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC0D548-B9A9-4986-BEB4-C865A9DD5CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC0D548-B9A9-4986-BEB4-C865A9DD5CE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4758E5E1-81B1-4EDD-BF37-0AD80C565770}
+	EndGlobalSection
+EndGlobal
