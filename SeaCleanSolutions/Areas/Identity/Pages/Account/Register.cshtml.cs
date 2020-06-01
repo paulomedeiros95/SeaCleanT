@@ -99,7 +99,7 @@ namespace SeaCleanSolutions.Areas.Identity.Pages.Account
                     else
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        return LocalRedirect("~/UserRegistred");
                     }
                 }
                 foreach (var error in result.Errors)

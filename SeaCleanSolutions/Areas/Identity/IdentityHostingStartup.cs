@@ -20,7 +20,7 @@ namespace SeaCleanSolutions.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("IndentityContextConnection")));
 
-                services.AddDefaultIdentity<SeaCleanSolutionsUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<SeaCleanSolutionsUser>(options => options.SignIn.RequireConfirmedAccount = false)
                     .AddEntityFrameworkStores<IndentityContext>();
             });
         }

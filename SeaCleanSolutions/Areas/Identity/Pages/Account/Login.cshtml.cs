@@ -23,7 +23,7 @@ namespace SeaCleanSolutions.Areas.Identity.Pages.Account
         private readonly ILogger<LoginModel> _logger;
         private readonly IEmailSender _emailSender;
 
-        public LoginModel(SignInManager<SeaCleanSolutionsUser> signInManager, 
+        public LoginModel(SignInManager<SeaCleanSolutionsUser> signInManager,
             ILogger<LoginModel> logger,
             UserManager<SeaCleanSolutionsUser> userManager,
             IEmailSender emailSender)
@@ -87,7 +87,8 @@ namespace SeaCleanSolutions.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    
+                    return LocalRedirect("~/MainPainel");
                 }
                 if (result.RequiresTwoFactor)
                 {
