@@ -20,7 +20,7 @@
         </div>
         <div class="navbar navbar-dark bg-dark box-shadow">
             <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a asp-page="/index" class="navbar-brand d-flex align-items-center">
                     <img src="~/img/logoH.png" id="logo" />
                 </a>
             </div>
@@ -29,8 +29,10 @@
 
     <!--BodyPage-->
     <main role="main">
-
-        <section class="jumbotron text-center">
+        <div class="col-12  text-center">
+            <img id="MainImg" src="~/img/sct.png" />
+        </div>
+        <section class="jumbotron text-center" style="margin-top: -40px">
             <div class="container">
                 <h1 class="jumbotron-heading">Welcome!</h1>
                 <p class="lead text-muted">Certifield Online Safty Training for all Sea Clean Staff. Our vision is to create a world where everyone is safe at work by providing high quality safety training courses.</p>
@@ -62,7 +64,7 @@
                         <div class="card mb-4 box-shadow">
                             <img class="card-img-top" src="~/img/ppe.png" alt="PPE">
                             <div class="card-body">
-                                <p class="card-text">This Course will guide you through all aspects of PPE, from upper and lower body protection to respirators and helmets. Additionally, the course will discuss CSA standards and maintenance regimens. Let's do this safetly.</p>
+                                <p class="card-text">This Course will guide you through all aspects of PPE, from upper and lower body protection to respirators and helmets. Additionally, the course will discuss CSA standards and maintenance regimens. Let's work safely.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a class="btn btn-primary my-2" asp-area="Identity" asp-page="/Account/Login">View</a>

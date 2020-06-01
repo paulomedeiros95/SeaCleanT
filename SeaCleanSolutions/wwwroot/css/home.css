@@ -1,42 +1,54 @@
 :root {
-  --jumbotron-padding-y: 3rem;
+    --jumbotron-padding-y: 3rem;
 }
 
 .jumbotron {
-  padding-top: var(--jumbotron-padding-y);
-  padding-bottom: var(--jumbotron-padding-y);
-  margin-bottom: 0;
-  background-color: #fff;
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
 }
+
 @media (min-width: 768px) {
-  .jumbotron {
-    padding-top: calc(var(--jumbotron-padding-y) * 2);
-    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    .jumbotron {
+        padding-top: calc(var(--jumbotron-padding-y) * 2);
+        padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    }
   }
+
+@media (max-width: 422px) {
+    #MainImg {
+        height: 20% !important;
+        width: 80% !important;
+        margin-top: 20px !important;
+        margin-bottom: 20px;
+    }
 }
 
 .jumbotron p:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .jumbotron-heading {
-  font-weight: 300;
+    font-weight: 300;
 }
 
 .jumbotron .container {
-  max-width: 40rem;
+    max-width: 40rem;
 }
 
 footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
-footer p {
-  margin-bottom: .25rem;
-}
+    footer p {
+        margin-bottom: .25rem;
+    }
 
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
 
 
 #logo {
@@ -46,4 +58,23 @@ footer p {
 }
 
 
+.login-card .login-btn {
+    padding: 13px 20px 12px;
+    background-color: #061c5e;
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+}
 
+    .login-card .login-btn:hover {
+        border: 1px solid #04c802;
+        background-color: #04c802;
+        color: #000;
+    }
+#MainImg {
+    height: 28%;
+    width: 25%;
+    margin-top: 50px;
+}
