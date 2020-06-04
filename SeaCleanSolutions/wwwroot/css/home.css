@@ -57,10 +57,9 @@ footer {
     margin-bottom: -26px;
 }
 
-
-.login-card .login-btn {
+.btn-primary {
     padding: 13px 20px 12px;
-    background-color: #061c5e;
+    background-color: #061c5e !important;
     border-radius: 4px;
     font-size: 17px;
     line-height: 20px;
@@ -68,9 +67,9 @@ footer {
     margin-bottom: 24px;
 }
 
-    .login-card .login-btn:hover {
-        border: 1px solid #04c802;
-        background-color: #04c802;
+    .btn-primary:hover {
+        border: 1px solid #04c802 !important;
+        background-color: #04c802 !important;
         color: #000;
     }
 #MainImg {

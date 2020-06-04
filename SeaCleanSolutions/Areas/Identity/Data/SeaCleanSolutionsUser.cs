@@ -9,5 +9,8 @@ namespace SeaCleanSolutions.Areas.Identity.Data
     // Add profile data for application users by adding properties to the SeaCleanSolutionsUser class
     public class SeaCleanSolutionsUser : IdentityUser
     {
+        public string FirstName { get; set; }
+
+        public string FullName { get; set; }
     }
 }

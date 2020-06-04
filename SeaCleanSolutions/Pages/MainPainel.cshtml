@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/home.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
 <html>
@@ -16,14 +16,21 @@
 
     <!--Nav-->
     <header>
-        <nav>
-            <div class="collapse bg-dark" id="navbarHeader">
-            </div>
-            <div class="navbar navbar-dark bg-dark box-shadow">
-                <div class="container d-flex justify-content-between">
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        <img src="~/img/logoH.png" id="logo" />
-                    </a>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a asp-page="/MainPainel" class="navbar-brand d-flex align-items-center">
+                    <img src="~/img/logoH.png" id="logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
