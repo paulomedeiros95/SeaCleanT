@@ -10,8 +10,8 @@ using SeaCleanSolutions.Models;
 namespace SeaCleanSolutions.Migrations
 {
     [DbContext(typeof(IndentityContext))]
-    [Migration("20200602180749_0001")]
-    partial class _0001
+    [Migration("20200604105642_InitialContext")]
+    partial class InitialContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -203,6 +203,9 @@ namespace SeaCleanSolutions.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Positions")
+                        .HasColumnType("int");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");

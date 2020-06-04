@@ -12,5 +12,7 @@ namespace SeaCleanSolutions.Areas.Identity.Data
         public string FirstName { get; set; }
 
         public string FullName { get; set; }
+
+        public string Positions { get; set; }
     }
 }

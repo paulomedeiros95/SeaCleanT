@@ -10,8 +10,8 @@ using SeaCleanSolutions.Models;
 namespace SeaCleanSolutions.Migrations
 {
     [DbContext(typeof(IndentityContext))]
-    [Migration("20200527163806_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200604120532_001")]
+    partial class _001
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -175,6 +175,12 @@ namespace SeaCleanSolutions.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -197,6 +203,9 @@ namespace SeaCleanSolutions.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Positions")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");

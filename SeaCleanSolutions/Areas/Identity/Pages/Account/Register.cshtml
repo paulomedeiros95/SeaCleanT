@@ -98,7 +98,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" type="text">
+                        <input asp-for="Input.FirstName" class="form-control" placeholder="User name" type="text">
                     </div> <!-- form-group// -->
 
                     <div class="form-group input-group">
@@ -112,12 +112,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                         </div>
-                        <select class="form-control">
-                            <option selected=""> Select job position</option>
-                            <option>Cleaner</option>
-                            <option>System Admin</option>
-                            <option>Supervisor</option>
-                            <option>Team Leader</option>
+                        <select asp-for="Input.Position" class="form-control">
+                            <option value="Cleaner">Select Position</option>
+                            <option value="Admin">System Admin</option>
+                            <option value="Cleaner">Cleaner</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="TeamLeader">Team Leader</option>
+                            <option value="Maneger">Director</option>
                         </select>
                     </div> <!-- form-group end.// -->
 
@@ -136,7 +137,7 @@
                     </div> <!-- form-group// -->
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                        <button id="btnRegister" type="submit" class="btn btn-primary">Register</button>
                     </div> <!-- form-group// -->
 
                 </form>

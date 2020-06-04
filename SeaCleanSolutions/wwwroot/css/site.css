@@ -18,6 +18,22 @@ a {
     margin-bottom: -26px;
 }
 
+#btnRegister {
+    padding: 13px 20px 12px;
+    background-color: #061c5e !important;
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+    #btnRegister:hover {
+        border: 1px solid #04c802 !important;
+        background-color: #04c802 !important;
+        color: #000;
+    }
+
 
 
 .btn-primary {
