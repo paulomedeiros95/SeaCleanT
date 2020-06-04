@@ -20,7 +20,7 @@ a {
 
 #btnRegister {
     padding: 13px 20px 12px;
-    background-color: #061c5e !important;
+    background-color: #1E6482 !important;
     border-radius: 4px;
     font-size: 17px;
     line-height: 20px;
@@ -95,7 +95,7 @@ body {
 }
 
 #logout {
-    background-color: #061c5e;
+    background-color: #1E6482;
     border-radius: 4px;
     font-size: 15px;
     line-height: 20px;

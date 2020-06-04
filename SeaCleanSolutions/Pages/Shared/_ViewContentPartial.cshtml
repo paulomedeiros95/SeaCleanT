@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SeaCleanSolutions.Areas.Identity.Data
+
+@inject SignInManager<SeaCleanSolutionsUser> SignInManager
+@inject UserManager<SeaCleanSolutionsUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+
+@if (user.Positions == "Supervisor")
+{
+    <partial name="_AdminPainelPartial" />
+}
+else
+{
+    <partial name="_RegularUserPainelPartial" />
+}
