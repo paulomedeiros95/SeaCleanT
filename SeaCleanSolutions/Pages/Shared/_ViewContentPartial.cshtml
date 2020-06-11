@@ -12,7 +12,15 @@
 {
     <partial name="_AdminPainelPartial" />
 }
-else
+@if (user.Positions == "Admin")
+{
+    <partial name="_AdminPainelPartial" />
+}
+@if (user.Positions == "Maneger")
+{
+    <partial name="_AdminPainelPartial" />
+}
+@if (user.Positions == "Cleaner")
 {
     <partial name="_RegularUserPainelPartial" />
 }

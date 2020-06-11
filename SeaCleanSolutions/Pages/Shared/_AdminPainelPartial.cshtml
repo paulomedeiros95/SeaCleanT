@@ -22,25 +22,24 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Management Menu</h3>
+                <h5>Management Menu</h5>
             </div>
 
             <ul class="list-unstyled components">
-                <p>Managment Opitions:</p>
                 <li>
-                    <a href="#">Add New Course</a>
+                    <a asp-page="AddNewCourse"><span class="fas fa-chalkboard-teacher"></span>&nbsp;Add New Course</a>
                 </li>
                 <li>
-                    <a href="#">Edit Course</a>
+                    <a href="#"><span class="fal fa-pen-square"></span>&nbsp;Edit Course</a>
                 </li>
                 <li>
-                    <a href="#">Add User</a>
+                    <a href="#"><span class="fa fa-user"></span>&nbsp;Add User</a>
                 </li>
                 <li>
-                    <a href="#">User Registred</a>
+                    <a href="#"><span class="fas fa-user-edit"></span>&nbsp;Edit Users</a>
                 </li>
                 <li>
-                    <a href="#">Reports</a>
+                    <a href="#"><span class="fal fa-file-chart-line"></span>&nbsp;Reports</a>
                 </li>
             </ul>
         </nav>
@@ -48,7 +47,7 @@
         <!-- Page Content -->
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+                <div class="container-fluid">   
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
                         <span>Menu</span>

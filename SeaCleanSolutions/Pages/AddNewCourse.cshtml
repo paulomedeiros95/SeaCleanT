@@ -1,0 +1,140 @@
+﻿@page
+@model SeaCleanSolutions.Pages.AddNewCourseModel
+@{
+    ViewData["Title"] = "Sea Clean Solutions";
+    Layout = null;
+}
+@using Microsoft.AspNetCore.Identity
+@using SeaCleanSolutions.Areas.Identity.Data
+
+@inject SignInManager<SeaCleanSolutionsUser> SignInManager
+@inject UserManager<SeaCleanSolutionsUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/register.css" />
+        <script src="~/js/site.js"></script>
+    </head>
+
+@if (user.Positions != "Admin")
+{
+    <h1>You Do NOT have permission to add courses, get out of here bitch!!!</h1>
+}
+else
+{
+    <!--Nav-->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a asp-page="/MainPainel" class="navbar-brand d-flex align-items-center">
+                    <img src="~/img/logoH.png" id="logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <hr>
+
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 500px;">
+                <h4 class="card-title mt-3 text-center">Create an Course</h4>
+
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="Input.CourseName" class="form-control" placeholder="Course Name" type="text">
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="Input.AuthorName" class="form-control" placeholder="Author" type="text">
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                        </div>
+                        <select asp-for="Input.CreatedTo" class="form-control" placeholder="Created to">
+                            <option value="1">Created To</option>
+                            <option value="1">All Staff</option>
+                            <option value="2">Cleaners Only</option>
+                            <option value="3">Supervisors Only</option>
+                            <option value="4">TL Only</option>
+                        </select>
+                    </div> <!-- form-group end.// -->
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="Input.VideoUrl" class="form-control" placeholder="Video Url" type="text">
+                    </div> <!-- form-group// -->
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="Input.QuestionnarieName" class="form-control" placeholder="Questionarie Name" type="text">
+                    </div> <!-- form-group// -->
+
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        @*<input asp-for="Input.CoursePhotos" class="form-control" placeholder="Files Name" type="text">*@
+                        <div class="multiselect">
+                            <div class="selectBox" onclick="showCheckboxes()">
+                                <select>
+                                    <option>Select Photos to Use</option>
+                                </select>
+                                <div class="overSelect"></div>
+                            </div>
+                            <div id="checkboxes">
+                                <label for="one">
+                                    <input type="checkbox" id="1" />&nbsp;ManualHandling1.png
+                                </label>
+                                <label for="two">
+                                    <input type="checkbox" id="2" />&nbsp;ManualHandling2.png
+                                </label>
+                                <label for="three">
+                                    <input type="checkbox" id="3" />&nbsp;ManualHandling3.png
+                                </label>
+                            </div>
+                        </div>
+                    </div> <!-- form-group// -->
+
+                    <div class="form-group">
+                        <button id="btnRegister" type="submit" class="btn btn-primary">Create</button>
+                    </div> <!-- form-group// -->
+
+                </form>
+            </article>
+        </div> <!-- card.// -->
+    </div>
+}
+
+

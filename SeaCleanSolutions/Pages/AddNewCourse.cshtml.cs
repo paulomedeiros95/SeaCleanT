@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using SeaCleanSolutions.Areas.Identity.Data;
+
+namespace SeaCleanSolutions.Pages
+{
+    public class AddNewCourseModel : PageModel
+    {
+
+        private readonly SignInManager<SeaCleanSolutionsUser> _signInManager;
+        private readonly UserManager<SeaCleanSolutionsUser> _userManager;
+        private readonly ILogger<AddNewCourseModel> _logger;
+        private readonly IEmailSender _emailSender;
+
+        public AddNewCourseModel(
+            UserManager<SeaCleanSolutionsUser> userManager,
+            SignInManager<SeaCleanSolutionsUser> signInManager,
+            ILogger<AddNewCourseModel> logger,
+            IEmailSender emailSender)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _logger = logger;
+            _emailSender = emailSender;
+        }
+
+
+
+        [BindProperty]
+        public InputModel Input { get; set; }
+
+        public string ReturnUrl { get; set; }
+
+      
+        public class InputModel
+        {
+            [Required]
+            [Display(Name = "Course Name")]
+            public string CourseName { get; set; }
+
+            [Required]
+            [Display(Name = "Author")]
+            public string AuthorName { get; set; }
+
+            [Required]
+            [Display(Name = "Created To")]
+            public string CreatedTo { get; set; }
+
+            [Display(Name = "Photos")]
+            public List<string> CoursePhotos { get; set; }
+
+            [Display(Name = "Questionnarie Name")]
+            public string QuestionnarieName { get; set; }
+
+            [Display(Name = "Questionnarie Name")]
+            public string VideoUrl { get; set; }
+
+        }
+
+
+
+    }
+}
