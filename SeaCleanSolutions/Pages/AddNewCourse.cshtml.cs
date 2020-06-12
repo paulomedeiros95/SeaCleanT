@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using SeaCleanSolutions.Areas.Application.Data;
 using SeaCleanSolutions.Areas.Identity.Data;
+using SeaCleanSolutions.Models;
 
 namespace SeaCleanSolutions.Pages
 {
@@ -17,6 +19,7 @@ namespace SeaCleanSolutions.Pages
 
         private readonly SignInManager<SeaCleanSolutionsUser> _signInManager;
         private readonly UserManager<SeaCleanSolutionsUser> _userManager;
+
         private readonly ILogger<AddNewCourseModel> _logger;
         private readonly IEmailSender _emailSender;
 
@@ -39,7 +42,7 @@ namespace SeaCleanSolutions.Pages
 
         public string ReturnUrl { get; set; }
 
-      
+
         public class InputModel
         {
             [Required]
@@ -55,17 +58,28 @@ namespace SeaCleanSolutions.Pages
             public string CreatedTo { get; set; }
 
             [Display(Name = "Photos")]
-            public List<string> CoursePhotos { get; set; }
+            public List<ImageDoc> ImageDoc { get; set; }
 
             [Display(Name = "Questionnarie Name")]
             public string QuestionnarieName { get; set; }
 
-            [Display(Name = "Questionnarie Name")]
+            [Display(Name = "Video Url")]
             public string VideoUrl { get; set; }
 
         }
 
+        //public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var course = new Course { CourseName = Input.CourseName, AuthorName = Input.AuthorName, CreatedTo = Input.CreatedTo, ImageDoc = Input.ImageDoc, QuestionnarieName = Input.QuestionnarieName, VideoUrl = Input.VideoUrl };
 
-
+        //        using(var context = new ApplicationDBContext())
+        //        {
+        //            context.Courses.Add(course);
+        //            context.SaveChanges();
+        //        } 
+        //    }
+        //}
     }
 }
