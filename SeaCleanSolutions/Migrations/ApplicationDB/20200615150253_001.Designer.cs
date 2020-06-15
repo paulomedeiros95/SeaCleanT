@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeaCleanSolutions.Areas.Application.Data;
 
 namespace SeaCleanSolutions.Migrations.ApplicationDB
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200615150253_001")]
+    partial class _001
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,19 +48,6 @@ namespace SeaCleanSolutions.Migrations.ApplicationDB
                     b.HasKey("CourseName");
 
                     b.ToTable("Courses");
-                });
-
-            modelBuilder.Entity("SeaCleanSolutions.Models.ImageDoc", b =>
-                {
-                    b.Property<string>("PhotoName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("PhotoGroup")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PhotoName");
-
-                    b.ToTable("ImageDocs");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,26 @@
+﻿@page
+@model SeaCleanSolutions.Pages.ConfigureCourseModel
+@{
+    ViewData["Title"] = "ConfigureCourse";
+    Layout = null;
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+
+<h1>CoursesList</h1>
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12">
+            <input type="file" id="fUpload" name="files" multiple class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="padding-top:10px;">
+            <input type="button" id="btnUpload" value="Upload" />
+        </div>
+    </div>
+</form>
+
+

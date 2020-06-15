@@ -12,6 +12,7 @@ namespace SeaCleanSolutions.Areas.Application.Data
 
         #region Public Properties DbSet
         public DbSet<Course> Courses { get; set; }
+        public DbSet<ImageDoc> ImageDocs { get; set; }
 
         #endregion
 

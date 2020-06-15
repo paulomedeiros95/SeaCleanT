@@ -57,8 +57,8 @@ namespace SeaCleanSolutions.Pages
             [Display(Name = "Created To")]
             public string CreatedTo { get; set; }
 
-            [Display(Name = "Photos")]
-            public List<ImageDoc> ImageDoc { get; set; }
+            [Display(Name = "Photo Group")]
+            public string PhotoGroup { get; set; }
 
             [Display(Name = "Questionnarie Name")]
             public string QuestionnarieName { get; set; }
@@ -68,18 +68,23 @@ namespace SeaCleanSolutions.Pages
 
         }
 
-        //public async Task<IActionResult> OnPostAsync(string returnUrl = null)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var course = new Course { CourseName = Input.CourseName, AuthorName = Input.AuthorName, CreatedTo = Input.CreatedTo, ImageDoc = Input.ImageDoc, QuestionnarieName = Input.QuestionnarieName, VideoUrl = Input.VideoUrl };
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        {
+            if (ModelState.IsValid)
+            {
+                var course = new Course { CourseName = Input.CourseName, AuthorName = Input.AuthorName, CreatedTo = Input.CreatedTo, QuestionnarieName = Input.QuestionnarieName, VideoUrl = Input.VideoUrl };
 
-        //        using(var context = new ApplicationDBContext())
-        //        {
-        //            context.Courses.Add(course);
-        //            context.SaveChanges();
-        //        } 
-        //    }
-        //}
+                using (var context = new ApplicationDBContext())
+                {
+                    context.Courses.Add(course);
+                    context.SaveChanges();
+                }
+                return RedirectToPage("CoursesList");
+            }
+
+            // If we got this far, something failed, redisplay form
+            return Page();
+
+        }
     }
 }

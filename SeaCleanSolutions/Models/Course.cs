@@ -23,9 +23,9 @@ namespace SeaCleanSolutions.Models
         [Display(Name = "Created To")]
         public string CreatedTo { get; set; }
 
-        [Required(ErrorMessage = "Field Photos Required")]
-        [Display(Name = "Photos")]
-        public List<ImageDoc> ImageDoc { get; set; }
+        [Required(ErrorMessage = "Field Group of photos Required")]
+        [Display(Name = "Group of photos")]
+        public string PhotoGroup { get; set; }
 
         [Required(ErrorMessage = "Field Questionnarie Name Required")]
         [Display(Name = "Questionnarie Name")]

@@ -13,14 +13,14 @@
 @{
     var user = await UserManager.GetUserAsync(User);
 }
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/register.css" />
-        <script src="~/js/site.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/register.css" />
+    <script src="~/js/site.js"></script>
+</head>
 
 @if (user.Positions != "Admin")
 {
@@ -85,6 +85,18 @@ else
                         </select>
                     </div> <!-- form-group end.// -->
 
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                        </div>
+                        <select asp-for="Input.PhotoGroup" class="form-control" placeholder="Select Images">
+                            <option value="ManualHandling1">ManualHandling1</option>
+                            <option value="ManualHandling2">ManualHandling2</option>
+                            <option value="ManualHandling3">ManualHandling3</option>
+                        </select>
+                    </div> <!-- form-group end.// -->
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -106,25 +118,25 @@ else
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
                         @*<input asp-for="Input.CoursePhotos" class="form-control" placeholder="Files Name" type="text">*@
-                        <div class="multiselect">
-                            <div class="selectBox" onclick="showCheckboxes()">
-                                <select>
-                                    <option>Select Photos to Use</option>
-                                </select>
-                                <div class="overSelect"></div>
-                            </div>
-                            <div id="checkboxes">
-                                <label for="one">
-                                    <input type="checkbox" id="1" />&nbsp;ManualHandling1.png
-                                </label>
-                                <label for="two">
-                                    <input type="checkbox" id="2" />&nbsp;ManualHandling2.png
-                                </label>
-                                <label for="three">
-                                    <input type="checkbox" id="3" />&nbsp;ManualHandling3.png
-                                </label>
-                            </div>
-                        </div>
+                        @*<div class="multiselect">
+                                <div class="selectBox" onclick="showCheckboxes()">
+                                    <select>
+                                        <option>Select Photos to Use</option>
+                                    </select>
+                                    <div class="overSelect"></div>
+                                </div>
+                                <div id="checkboxes">
+                                    <label for="one">
+                                        <input asp-for="Input.ImageDoc"  type="checkbox" id="1" />&nbsp;ManualHandling1.png
+                                    </label>
+                                    <label for="two">
+                                        <input asp-for="Input.ImageDoc"  type="checkbox" id="2" />&nbsp;ManualHandling2.png
+                                    </label>
+                                    <label for="three">
+                                        <input type="checkbox" id="3" />&nbsp;ManualHandling3.png
+                                    </label>
+                                </div>
+                            </div>*@
                     </div> <!-- form-group// -->
 
                     <div class="form-group">

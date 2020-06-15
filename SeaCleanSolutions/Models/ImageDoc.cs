@@ -9,6 +9,8 @@ namespace SeaCleanSolutions.Models
     public class ImageDoc
     {
         [Key]
-        public string PhotoPath { get; set; }
+        public string PhotoName { get; set; }
+
+        public string PhotoGroup { get; set; }
     }
 }
