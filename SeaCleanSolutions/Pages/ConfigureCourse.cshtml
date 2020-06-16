@@ -4,23 +4,84 @@
     ViewData["Title"] = "ConfigureCourse";
     Layout = null;
 }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 
+@using Microsoft.AspNetCore.Identity
+@using SeaCleanSolutions.Areas.Identity.Data
 
-<h1>CoursesList</h1>
-<form method="post" enctype="multipart/form-data">
-    <div class="row">
-        <div class="col-md-12">
-            <input type="file" id="fUpload" name="files" multiple class="form-control" />
-        </div>
+@inject UserManager<SeaCleanSolutionsUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/register.css" />
+
+</head>
+
+@if (user.Positions != "Admin")
+{
+    <h1>You Do NOT have permission to add courses, get out of here bitch!!!</h1>
+}
+else
+{
+    <!--Nav-->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            <div class="container">
+                <a asp-page="/MainPainel" class="navbar-brand d-flex align-items-center">
+                    <img src="~/img/logoH.png" id="logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <partial name="_LoginPartial" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <hr>
+
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Upload Photos</h4>
+
+                <form method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="Input.PhotoGroupID" class="form-control" placeholder="Photo Group ID" type="text">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="padding-top:10px;">
+                            <input type="file" asp-for="files" multiple />
+                          <hr />
+                            <input type="submit" value="Upload" />
+                        </div>
+                    </div>
+                </form>
+            </article>
+        </div> <!-- card.// -->
     </div>
-    <div class="row">
-        <div class="col-md-12" style="padding-top:10px;">
-            <input type="button" id="btnUpload" value="Upload" />
-        </div>
-    </div>
-</form>
+
+}
 
 

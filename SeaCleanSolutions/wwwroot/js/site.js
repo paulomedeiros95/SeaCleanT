@@ -16,6 +16,7 @@ function showCheckboxes() {
 $(document).ready(function () {
     $('#btnUpload').on('click', function () {
         var files = $('#fUpload').prop("files");
+        var grupo = $('#PhotoGroup').val();
         var fdata = new FormData();
         for (var i = 0; i < files.length; i++) {
             fdata.append("files", files[i]);
@@ -33,7 +34,7 @@ $(document).ready(function () {
                 processData: false,
                 success: function (response) {
                     alert('File Uploaded Successfully.')
-                    location.reload();
+                    //location.reload();
                 }
 
             });
