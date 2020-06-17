@@ -78,12 +78,15 @@ namespace SeaCleanSolutions.Pages
                         var course = new ImageDoc { PhotoName = fileName, PhotoGroup = Input.PhotoGroupID };
                         using (var context = new ApplicationDBContext())
                         {
-                            context.ImageDocs.Add(course);
+                            //var checkData = context.ImageDocs.Select(x => x.PhotoName == course.PhotoName);
+                            //if()
+                            context.ImageDocs.Add(course); 
                             context.SaveChanges();
                         }
 
                     }
                 }
+                ViewData["Message"] = "Files Uploaded Successfuly";
             }
 
         }
