@@ -13,6 +13,7 @@ namespace SeaCleanSolutions.Migrations.ApplicationDB
                     CourseName = table.Column<string>(nullable: false),
                     AuthorName = table.Column<string>(nullable: false),
                     CreatedTo = table.Column<string>(nullable: false),
+                    PhotoGroup = table.Column<string>(nullable: false),
                     QuestionnarieName = table.Column<string>(nullable: false),
                     VideoUrl = table.Column<string>(nullable: false)
                 },
@@ -22,36 +23,25 @@ namespace SeaCleanSolutions.Migrations.ApplicationDB
                 });
 
             migrationBuilder.CreateTable(
-                name: "ImageDoc",
+                name: "ImageDocs",
                 columns: table => new
                 {
-                    PhotoPath = table.Column<string>(nullable: false),
-                    CourseName = table.Column<string>(nullable: true)
+                    PhotoName = table.Column<string>(nullable: false),
+                    PhotoGroup = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ImageDoc", x => x.PhotoPath);
-                    table.ForeignKey(
-                        name: "FK_ImageDoc_Courses_CourseName",
-                        column: x => x.CourseName,
-                        principalTable: "Courses",
-                        principalColumn: "CourseName",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PK_ImageDocs", x => new { x.PhotoName, x.PhotoGroup });
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ImageDoc_CourseName",
-                table: "ImageDoc",
-                column: "CourseName");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ImageDoc");
+                name: "Courses");
 
             migrationBuilder.DropTable(
-                name: "Courses");
+                name: "ImageDocs");
         }
     }
 }

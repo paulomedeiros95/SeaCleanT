@@ -36,10 +36,10 @@
                     <a asp-page="ConfigureCourse"><span class="fal fa-pen-square"></span>&nbsp;Add Images</a>
                 </li>
                 <li>
-                    <a asp-page="ConfigureCourse"><span class="fal fa-pen-square"></span>&nbsp;Add Questionnarie</a>
+                    <a asp-page="ConfigureQuestionnarie"><span class="fal fa-pen-square"></span>&nbsp;Add Questionnarie</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-user"></span>&nbsp;Add User</a>
+                    <a asp-area="Identity" asp-page="/Account/Register"><span class="fa fa-user"></span>&nbsp;Add User</a>
                 </li>
                 <li>
                     <a href="#"><span class="fas fa-user-edit"></span>&nbsp;Edit Users</a>
@@ -53,7 +53,7 @@
         <!-- Page Content -->
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">   
+                <div class="container-fluid">
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
                         <span>Menu</span>

@@ -1,21 +1,32 @@
 ﻿@page
-@model RegisterModel
+@model SeaCleanSolutions.Pages.ConfigureQuestionnarieModel
 @{
-    ViewData["Title"] = "Register";
     Layout = null;
 }
 
+@using Microsoft.AspNetCore.Identity
+@using SeaCleanSolutions.Areas.Identity.Data
+
+@inject SignInManager<SeaCleanSolutionsUser> SignInManager
+@inject UserManager<SeaCleanSolutionsUser> UserManager
+
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/register.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
-<html>
-<body>
+@if (user.Positions != "Admin")
+{
+    <h1>You Do NOT have permission to add courses, get out of here bitch!!!</h1>
+}
+else
+{
     <!--Nav-->
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
@@ -38,75 +49,54 @@
         </nav>
     </header>
 
-       <div class="container">
+    <!--Body part-->
+    <div class="container">
         <hr>
 
         <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 400px;">
-                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <h4 class="card-title mt-3 text-center">Create a Questionnarie</h4>
 
-                <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <form method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input asp-for="Input.FullName" class="form-control" placeholder="Full name" type="text">
-                    </div> <!-- form-group// -->
-
+                        <input asp-for="Input.QuestionnarieID" class="form-control" placeholder="Questionnarie ID" type="text">
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input asp-for="Input.FirstName" class="form-control" placeholder="User name" type="text">
-                    </div> <!-- form-group// -->
-
+                        <input asp-for="Input.QuestionNumber" class="form-control" placeholder="Question number" type="text">
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input asp-for="Input.Email" class="form-control" placeholder="Email address" type="email">
-                    </div> <!-- form-group// -->
-
+                        <input asp-for="Input.Question" class="form-control" placeholder="Question" type="text">
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <select asp-for="Input.Position" class="form-control">
-                            <option value="Cleaner">Select Position</option>
-                            <option value="Admin">System Admin</option>
-                            <option value="Cleaner">Cleaner</option>
-                            <option value="Supervisor">Supervisor</option>
-                            <option value="TeamLeader">Team Leader</option>
-                            <option value="Maneger">Director</option>
-                        </select>
-                    </div> <!-- form-group end.// -->
-
+                        <input asp-for="Input.Answer" class="form-control" placeholder="Answer" type="text">
+                    </div>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input asp-for="Input.Password" class="form-control" placeholder="Create password" type="password">
-                    </div> <!-- form-group// -->
-
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                        </div>
-                        <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Repeat password" type="password">
-                    </div> <!-- form-group// -->
-
+                        <input asp-for="Input.AnswersOptions" class="form-control" placeholder="AnswerOptions" type="text">
+                    </div>
                     <div class="form-group">
-                        <button id="btnRegister" type="submit" class="btn btn-primary">Register</button>
+                        <button id="btnRegister" type="submit" class="btn btn-primary">Create</button>
                     </div> <!-- form-group// -->
 
+                    <b> @ViewData["Message"]</b>
                 </form>
             </article>
         </div> <!-- card.// -->
     </div>
-</body>
-</html>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
 }
+

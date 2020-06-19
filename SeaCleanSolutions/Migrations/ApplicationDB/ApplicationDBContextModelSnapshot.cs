@@ -54,9 +54,9 @@ namespace SeaCleanSolutions.Migrations.ApplicationDB
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PhotoGroup")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("PhotoName");
+                    b.HasKey("PhotoName", "PhotoGroup");
 
                     b.ToTable("ImageDocs");
                 });

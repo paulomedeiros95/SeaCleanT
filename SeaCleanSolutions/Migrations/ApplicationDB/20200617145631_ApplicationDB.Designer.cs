@@ -9,7 +9,7 @@ using SeaCleanSolutions.Areas.Application.Data;
 namespace SeaCleanSolutions.Migrations.ApplicationDB
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20200612144615_ApplicationDB")]
+    [Migration("20200617145631_ApplicationDB")]
     partial class ApplicationDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,10 @@ namespace SeaCleanSolutions.Migrations.ApplicationDB
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhotoGroup")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("QuestionnarieName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -48,24 +52,15 @@ namespace SeaCleanSolutions.Migrations.ApplicationDB
 
             modelBuilder.Entity("SeaCleanSolutions.Models.ImageDoc", b =>
                 {
-                    b.Property<string>("PhotoPath")
+                    b.Property<string>("PhotoName")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CourseName")
+                    b.Property<string>("PhotoGroup")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("PhotoPath");
+                    b.HasKey("PhotoName", "PhotoGroup");
 
-                    b.HasIndex("CourseName");
-
-                    b.ToTable("ImageDoc");
-                });
-
-            modelBuilder.Entity("SeaCleanSolutions.Models.ImageDoc", b =>
-                {
-                    b.HasOne("SeaCleanSolutions.Models.Course", null)
-                        .WithMany("ImageDoc")
-                        .HasForeignKey("CourseName");
+                    b.ToTable("ImageDocs");
                 });
 #pragma warning restore 612, 618
         }

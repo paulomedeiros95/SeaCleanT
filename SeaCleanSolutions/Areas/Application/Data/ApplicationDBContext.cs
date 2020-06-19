@@ -13,6 +13,7 @@ namespace SeaCleanSolutions.Areas.Application.Data
         #region Public Properties DbSet
         public DbSet<Course> Courses { get; set; }
         public DbSet<ImageDoc> ImageDocs { get; set; }
+        public DbSet<QuestionnarieM> Questionnaries { get; set; }
 
         #endregion
 
@@ -20,6 +21,15 @@ namespace SeaCleanSolutions.Areas.Application.Data
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Dev_SeaCleanSolutions;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ImageDoc>()
+                .HasKey(o => new { o.PhotoName, o.PhotoGroup });
+            modelBuilder.Entity<QuestionnarieM>()
+               .HasKey(o => new { o.QuestionnarieID, o.QuestionNumber });
+        }
+
+
 
     }
 
