@@ -22,6 +22,7 @@ namespace SeaCleanSolutions.Pages
 {
     public class ConfigureQuestionnarieModel : PageModel
     {
+
         private readonly SignInManager<SeaCleanSolutionsUser> _signInManager;
         private readonly UserManager<SeaCleanSolutionsUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
