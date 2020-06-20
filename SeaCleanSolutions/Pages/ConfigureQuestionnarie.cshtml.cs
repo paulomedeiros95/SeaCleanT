@@ -61,9 +61,27 @@ namespace SeaCleanSolutions.Pages
             public string Answer { get; set; }
         }
 
-        //public async Task OnPostAsync(List<IFormFile> files)
-        //{
-        //}
+        public async Task OnPostAsync()
+        {
+            if (ModelState.IsValid)
+            {
+                var questionnarries = new QuestionnarieM
+                {
+                    QuestionnarieID = Input.QuestionnarieID,
+                    QuestionNumber = Input.QuestionNumber,
+                    Question = Input.Question,
+                    AnswersOptions = Input.AnswersOptions,
+                    Answer = Input.Answer
+                };
+
+                using(var context = new ApplicationDBContext())
+                {
+                    context.Questionnaries.Add(questionnarries);
+                    context.SaveChanges();
+                }
+            }
+            ViewData["Message"] = "Questionnaries saved successfuly!";
+        }
 
     }
 }
