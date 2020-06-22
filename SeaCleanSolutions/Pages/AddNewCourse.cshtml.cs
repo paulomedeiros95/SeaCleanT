@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SeaCleanSolutions.Areas.Application.Data;
 using SeaCleanSolutions.Areas.Identity.Data;
@@ -42,6 +43,9 @@ namespace SeaCleanSolutions.Pages
 
         public string ReturnUrl { get; set; }
 
+        public IEnumerable<ImageDoc> ImageDocs { get; set; }
+        public IEnumerable<QuestionnarieGroupID> Questionnaries { get; set; }
+
 
         public class InputModel
         {
@@ -68,23 +72,33 @@ namespace SeaCleanSolutions.Pages
 
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task OnPostAsync(string returnUrl = null)
         {
             if (ModelState.IsValid)
             {
-                var course = new Course { CourseName = Input.CourseName, AuthorName = Input.AuthorName, CreatedTo = Input.CreatedTo, QuestionnarieName = Input.QuestionnarieName, VideoUrl = Input.VideoUrl };
+                var course = new Course { CourseName = Input.CourseName, AuthorName = Input.AuthorName, CreatedTo = Input.CreatedTo,PhotoGroup=Input.PhotoGroup, QuestionnarieName = Input.QuestionnarieName, VideoUrl = Input.VideoUrl };
 
                 using (var context = new ApplicationDBContext())
                 {
                     context.Courses.Add(course);
                     context.SaveChanges();
                 }
-                return RedirectToPage("CoursesList");
+                ViewData["Message"] = "Course created successfuly!";
             }
 
             // If we got this far, something failed, redisplay form
-            return Page();
+            ViewData["Message"] = "Something is wrong, please contact your system administrator.";
 
+        }
+
+        public async Task OnGet()
+        {
+            using (var context = new ApplicationDBContext())
+            {
+                ImageDocs = await context.ImageDocs.ToListAsync();
+
+                Questionnaries = await context.QuestionnarieGroupIDs.ToListAsync();
+            }
         }
     }
 }

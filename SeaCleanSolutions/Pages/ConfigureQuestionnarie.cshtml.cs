@@ -64,6 +64,8 @@ namespace SeaCleanSolutions.Pages
         public async Task OnPostAsync()
         {
             if (ModelState.IsValid)
+
+            ///ADDING QUESTIONNARIE
             {
                 var questionnarries = new QuestionnarieM
                 {
@@ -74,9 +76,16 @@ namespace SeaCleanSolutions.Pages
                     Answer = Input.Answer
                 };
 
-                using(var context = new ApplicationDBContext())
+                var questionarieGroupID = new QuestionnarieGroupID
+                {
+                    QGroupID = Input.QuestionnarieID
+                };
+
+                using (var context = new ApplicationDBContext())
                 {
                     context.Questionnaries.Add(questionnarries);
+                    context.QuestionnarieGroupIDs.Remove(questionarieGroupID);
+                    context.QuestionnarieGroupIDs.Add(questionarieGroupID);
                     context.SaveChanges();
                 }
             }

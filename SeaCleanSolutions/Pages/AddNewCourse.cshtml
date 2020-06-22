@@ -86,15 +86,12 @@ else
                         </select>
                     </div> <!-- form-group end.// -->
 
-
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                         </div>
-                        <select asp-for="Input.PhotoGroup" class="form-control" placeholder="Select Images">
-                            <option value="ManualHandling1">ManualHandling1</option>
-                            <option value="ManualHandling2">ManualHandling2</option>
-                            <option value="ManualHandling3">ManualHandling3</option>
+                        <select class="form-control" asp-items="@(new SelectList(Model.ImageDocs, "PhotoGroup", "PhotoGroup"))" asp-for="Input.PhotoGroup">
+                            <option value="" selected disabled>--Select Group of photos--</option>
                         </select>
                     </div> <!-- form-group end.// -->
 
@@ -108,41 +105,18 @@ else
 
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-building"></i> </span>
                         </div>
-                        <input asp-for="Input.QuestionnarieName" class="form-control" placeholder="Questionarie Name" type="text">
-                    </div> <!-- form-group// -->
-
-
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                        </div>
-                        @*<input asp-for="Input.CoursePhotos" class="form-control" placeholder="Files Name" type="text">*@
-                        @*<div class="multiselect">
-                                <div class="selectBox" onclick="showCheckboxes()">
-                                    <select>
-                                        <option>Select Photos to Use</option>
-                                    </select>
-                                    <div class="overSelect"></div>
-                                </div>
-                                <div id="checkboxes">
-                                    <label for="one">
-                                        <input asp-for="Input.ImageDoc"  type="checkbox" id="1" />&nbsp;ManualHandling1.png
-                                    </label>
-                                    <label for="two">
-                                        <input asp-for="Input.ImageDoc"  type="checkbox" id="2" />&nbsp;ManualHandling2.png
-                                    </label>
-                                    <label for="three">
-                                        <input type="checkbox" id="3" />&nbsp;ManualHandling3.png
-                                    </label>
-                                </div>
-                            </div>*@
-                    </div> <!-- form-group// -->
+                        <select class="form-control" asp-items="@(new SelectList(Model.Questionnaries, "QGroupID", "QGroupID"))" asp-for="Input.QuestionnarieName">
+                            <option value="" selected disabled>--Select Questionnarie--</option>
+                        </select>
+                    </div> <!-- form-group end.// -->
 
                     <div class="form-group">
                         <button id="btnRegister" type="submit" class="btn btn-primary">Create</button>
                     </div> <!-- form-group// -->
+
+                    <b> @ViewData["Message"]</b>
 
                 </form>
             </article>

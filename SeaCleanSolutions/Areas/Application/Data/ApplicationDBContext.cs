@@ -14,6 +14,7 @@ namespace SeaCleanSolutions.Areas.Application.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<ImageDoc> ImageDocs { get; set; }
         public DbSet<QuestionnarieM> Questionnaries { get; set; }
+        public DbSet<QuestionnarieGroupID> QuestionnarieGroupIDs { get; set; }
 
         #endregion
 
