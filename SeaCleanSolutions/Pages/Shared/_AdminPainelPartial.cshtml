@@ -27,25 +27,28 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a asp-page="AddNewCourse"><span class="fas fa-chalkboard-teacher"></span>&nbsp;Add New Course</a>
+                    <a id="mainpanelFont" asp-area="Identity" asp-page="/Account/Register"><span class="fa fa-user"></span>&nbsp;Add User</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fal fa-pen-square"></span>&nbsp;Edit Course</a>
+                    <a id="mainpanelFont" href="#"><span class="fas fa-user-edit"></span>&nbsp;Edit Users</a>
                 </li>
                 <li>
-                    <a asp-page="ConfigureCourse"><span class="fal fa-pen-square"></span>&nbsp;Add Images</a>
+                    <a id="mainpanelFont" asp-page="AddNewCourse"><span class="fas fa-chalkboard-teacher"></span>&nbsp;Add New Course</a>
                 </li>
                 <li>
-                    <a asp-page="ConfigureQuestionnarie"><span class="fal fa-pen-square"></span>&nbsp;Add Questionnarie</a>
+                    <a id="mainpanelFont" href="#"><span class="fal fa-pen-square"></span>&nbsp;Delete Course</a>
                 </li>
                 <li>
-                    <a asp-area="Identity" asp-page="/Account/Register"><span class="fa fa-user"></span>&nbsp;Add User</a>
+                    <a id="mainpanelFont" asp-page="ConfigureCourse"><span class="fal fa-pen-square"></span>&nbsp;Add Images</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fas fa-user-edit"></span>&nbsp;Edit Users</a>
+                    <a id="mainpanelFont" asp-page="ConfigureQuestionnarie"><span class="fal fa-pen-square"></span>&nbsp;Add Questionnarie</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fal fa-file-chart-line"></span>&nbsp;Reports</a>
+                    <a id="mainpanelFont" asp-page="CourseList"><span class="fa fa-book"></span>&nbsp;Courses List</a>
+                </li>
+                <li>
+                    <a id="mainpanelFont" href="#"><span class="fal fa-file-chart-line"></span>&nbsp;Reports</a>
                 </li>
             </ul>
         </nav>

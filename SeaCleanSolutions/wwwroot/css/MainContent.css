@@ -88,7 +88,7 @@ a, a:hover, a:focus {
     }
 
     #sidebar ul li a {
-        padding: 10px;
+        padding: 8px;
         font-size: 1.1em;
         display: block;
     }
@@ -112,4 +112,9 @@ ul ul a {
 
 #sidebarCollapse {
     background-color: #1E6482 !important;
+}
+
+
+#mainpanelFont {
+    font-size: 17px !important;
 }
