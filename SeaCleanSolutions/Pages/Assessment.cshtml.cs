@@ -38,7 +38,8 @@ namespace SeaCleanSolutions.Pages
         [BindProperty]
         public IEnumerable<QuestionnarieM> QuestionarieModel { get; set; }
         public IEnumerable<Course> Courses { get; set; }
-        public List<string> options { get; set; }
+        //public Dictionary<int, string> options { get; set; }
+        public List<Tuple<int, string>> options { get; set; }
 
         public async Task OnGet(string qID)
         {
@@ -47,20 +48,24 @@ namespace SeaCleanSolutions.Pages
                 Courses = await context.Courses.Where(x => x.CourseName == qID).ToListAsync();
                 QuestionarieModel = await context.Questionnaries.Where(x => x.QuestionnarieID == qID).ToListAsync();//QuestionnarieID é o identificador
             }
-                    
 
-       
-            List<string> optionsList = new List<string>();
-            foreach( var item in QuestionarieModel)
+            var OptionsList = new List<Tuple<int, string>>
             {
-                optionsList.Add(item.AnswersOptions)
+                //Tuple.Create(item.QuestionNumber, alternativesItem)
+            };
+
+            foreach (var item in QuestionarieModel)
+            {
+                var stringToParse = item.AnswersOptions;
+                string[] alternatives = stringToParse.Split(';');
+
+                foreach (var alternativesItem in alternatives)
+                {
+                    //Tuple.Create(item.QuestionNumber, alternativesItem);
+                    OptionsList.Add(new Tuple<int, string>(item.QuestionNumber, alternativesItem));
+                }
+                options = OptionsList;
             }
-
-            // Add items using Add method   
-            optionsList.Add("Mahesh Chand");
-
-
-            options = optionsList;
-        
+        }
     }
 }

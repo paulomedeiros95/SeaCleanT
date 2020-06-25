@@ -11,14 +11,17 @@
 @inject SignInManager<SeaCleanSolutionsUser> SignInManager
 @inject UserManager<SeaCleanSolutionsUser> UserManager
 <!--Imports-->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/register.css" />
-    <script src="~/js/site.js"></script>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/register.css" />>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/js/site.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    </head>
 
 <!--Nav-->
 <header>
@@ -50,13 +53,43 @@
             <h4 class="card-title mt-3 text-center">@x.CourseName Assessment</h4>
             @foreach (var item in Model.QuestionarieModel)
             {
-                <p>Q: @item.QuestionNumber &nbsp; . @item.Question</p>
+                <p>Q: @item.QuestionNumber &nbsp;    @item.Question</p>
                 <hr />
-
-
+                foreach (var opt in Model.options)
+                {
+                    if (opt.Item1 == item.QuestionNumber)
+                    {
+                        <div>
+                            <input type="checkbox" class="custom-radio" name="@opt.Item1" value="@opt.Item2">
+                            <label for="@opt">@opt.Item2</label>
+                        </div>
+                    }
+                }
             }
+            <p>
+                <a id="btnAssessment" class="btn btn-primary my-2 float-lg-right" asp-page="PosAssessment">Submmit</a>
+            </p>
         </article>
     </div>
 </div>
 
 
+<script>
+    // the selector will match all input controls of type :checkbox
+// and attach a click event handler 
+$("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+</script>
