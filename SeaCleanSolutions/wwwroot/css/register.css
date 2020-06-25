@@ -37,3 +37,32 @@
         background-color: #04c802 !important;
         color: #000;
     }
+
+
+.btn-primary {
+    padding: 13px 20px 12px;
+    background-color: #1E6482 !important;
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+    .btn-primary:hover {
+        border: 1px solid #04c802 !important;
+        background-color: #04c802 !important;
+        color: #000;
+    }
+
+#btnAssessment {
+    width: 200px;
+}
+
+/* On screens that are 600px or less...images reduced */
+@media screen and (max-width: 600px) {
+    #imgCarrousel{
+        width: 400px;
+        height: 350px;
+    }
+}

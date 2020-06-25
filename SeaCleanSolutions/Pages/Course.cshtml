@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Sea Clean Solutions";
     Layout = null;
+    var x = Model.QuestionarieModel.FirstOrDefault();
 }
 @using Microsoft.AspNetCore.Identity
 @using SeaCleanSolutions.Areas.Identity.Data
@@ -12,38 +13,30 @@
 
 
 
-    <head>
-        @*
-        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/register.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/register.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
+    <style>
+        .carousel {
+            background: #2f4357;
+            margin-top: 20px;
+        }
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/register.css" />
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-
-        <style>
-            .carousel {
-                background: #2f4357;
-                margin-top: 20px;
-            }
-
-            .carousel-item {
-                text-align: center;
-                min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
-            }
-        </style>
-    </head>
+        .carousel-item {
+            text-align: center;
+            min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+        }
+    </style>
+</head>
 
 <!--Nav-->
 <header>
@@ -68,38 +61,41 @@
 </header>
 
 <!--Body-->
-
 <div class="container">
-    <hr>
-    <div class="card bg-light">
-        <div id="myCarousel" class="carousel slide" data-interval="false"> 
-            <!-- Carousel indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <!-- Wrapper for carousel items -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="~/img/Manual Handling 01.png" alt="First Slide">
-                </div>
-                <div class="carousel-item">
-                    <img src="~/img/Manual Handling 02.png" alt="Second Slide">
-                </div>
-                <div class="carousel-item">
-                    <img src="~/img/Manual Handling 03.png" alt="Third Slide">
-                </div>
+
+    <!--Desktop Carousel-->
+    <div id="myCarousel" class="carousel slide" data-interval="false">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img id="imgCarrousel" src="~/img/Manual Handling 01.png" alt="First Slide">
             </div>
-            <!-- Carousel controls -->
-            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
+            <div class="carousel-item">
+                <img id="imgCarrousel" src="~/img/Manual Handling 02.png" alt="Second Slide">
+            </div>
+            <div class="carousel-item">
+                <img id="imgCarrousel" src="~/img/Manual Handling 03.png" alt="Third Slide">
+            </div>
         </div>
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
     </div>
+
+    <br />
+    <!--Btn Assessment-->
+    <p>      
+        <a id="btnAssessment" class="btn btn-primary my-2 float-lg-right" asp-page="PreAssessment" asp-route-qID=@x.QuestionnarieID>Assessment</a>
+    </p>
+
 </div>
-
-
